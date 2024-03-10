@@ -1,0 +1,26 @@
+﻿Estimate summary
+Upfront cost,Monthly cost,Total 12 months cost,Currency
+0,14875.800000000001,178509.60,USD
+,,* Includes upfront cost
+
+
+Detailed Estimate
+Group hierarchy,Region,Description,Service,Upfront,Monthly,First 12 months total,Currency,Status,Configuration summary
+My Estimate,US East (N. Virginia),Web server,Amazon EC2 ,0,2198.352,26380.22,USD,,"Tenancy (Shared Instances), Operating system (Linux), Workload (Consistent, Number of instances: 8), Advance EC2 instance (t3.2xlarge), Pricing strategy (On-Demand Utilization: 100 %Utilized/Month), Enable monitoring (enabled), EBS Storage amount (200 GB), DT Inbound: Not selected (0 TB per month), DT Outbound: Not selected (0 TB per month), DT Intra-Region: (0 TB per month)"
+My Estimate,US East (N. Virginia),App Server,Amazon EC2 ,0,2497.36,29968.32,USD,,"Tenancy (Shared Instances), Operating system (Linux), Workload (Consistent, Number of instances: 8), Advance EC2 instance (m5.2xlarge), Pricing strategy (On-Demand Utilization: 100 %Utilized/Month), Enable monitoring (enabled), EBS Storage amount (200 GB), DT Inbound: Not selected (0 TB per month), DT Outbound: Not selected (0 TB per month), DT Intra-Region: (0 TB per month)"
+My Estimate,US East (N. Virginia),,Amazon RDS for PostgreSQL,0,5547.839999999999,66574.08,USD,,"Storage volume (General Purpose SSD (gp2)), Storage amount (2 TB), Nodes (2), Instance Type (db.m5.4xlarge), Utilization (On-Demand only) (100 %Utilized/Month), Deployment Option (Multi-AZ), Pricing Model (OnDemand), Additional backup storage (1 TB)"
+My Estimate,US East (N. Virginia),,Amazon Route 53,0,1303.5,15642.00,USD,,"Hosted Zones (2), Number of Elastic Network Interfaces (14), Basic Checks Within AWS (100), Number of domains stored ()"
+My Estimate,US East (N. Virginia),,Amazon CloudFront,0,0,0.00,USD,,Number of requests (HTTPS) ( per month)
+My Estimate,US East (N. Virginia),,S3 Standard,0,123.16,1477.92,USD,,"S3 Standard storage (5 TB per month), PUT, COPY, POST, LIST requests to S3 Standard (1000000), GET, SELECT, and all other requests from S3 Standard (1000000)"
+My Estimate,US East (N. Virginia),,Data Transfer,0,0,0.00,USD,,
+My Estimate,US East (N. Virginia),,VPN Connection,0,742,8904.00,USD,,"Working days per month (25), Number of subnet associations (4)"
+My Estimate,US East (N. Virginia),,Network Address Translation (NAT) Gateway,0,78.93,947.16,USD,,Number of NAT Gateways (1)
+My Estimate,US East (N. Virginia),,Public IPv4 Address,0,36.5,438.00,USD,,"Number of In-use public IPv4 addresses (8), Number of Idle public IPv4 addresses (2)"
+My Estimate,US East (N. Virginia),App Load Balancer,Application Load Balancer,0,1184.43,14213.16,USD,,Number of Application Load Balancers (1)
+My Estimate,US East (N. Virginia),Network Load Balancer,Network Load Balancer,0,1023.8299999999999,12285.96,USD,,"Number of Network Load Balancers (1), Processed bytes per NLB for TCP (100 GB per hour), Average number of new TCP connections (10000 per second), Average number of new TLS connections (1000 per second), Average TLS connection duration (30 seconds), Processed bytes per NLB for TLS (100 GB per hour), Average TCP connection duration (30 seconds), Processed bytes per NLB for UDP (30 GB per hour), Average number of new UDP Flows (100 per second), Average UDP Flow duration (20 seconds)"
+My Estimate,US East (N. Virginia),,Amazon CloudWatch,0,139.9,1678.80,USD,,"Number of Metrics (includes detailed and custom metrics) (100), Standard Logs: Data Ingested (200 GB), Number of Dashboards (6)"
+
+
+
+Acknowledgement
+"* AWS Pricing Calculator provides only an estimate of your AWS fees and doesn't include any taxes that might apply. Your actual fees depend on a variety of factors, including your actual usage of AWS services."
