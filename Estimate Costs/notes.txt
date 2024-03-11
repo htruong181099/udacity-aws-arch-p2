@@ -1,9 +1,9 @@
-Increase Cost
+Increase Cost:
 - Add more instance to EC2 (8)
-- Increase instance type to EC2 (t3.2xlarge, m5.2xlarge)
+- Increase instance type to EC2 (t3.2xlarge, m5.4xlarge)
 - Add more instance to RDS (2)
 - Add more storage to RDS
-- Add more storage S3s
+- Add more storage to S3
 - Reduce EBS storage
 - Adjust VPC 
 
