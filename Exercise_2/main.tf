@@ -1,20 +1,17 @@
 provider "aws" {
-    profile: "default"
-    region: var.aws_region
+    profile= "default"
+    region= var.aws_region
 }
 
-data archive_file "archive" {
-  type        = "zip"
-  output_path = "${path.module}/files/output.zip"
-
-  source {
-    content  = "lambda"
-    filename = "greet_lambda.py"
-  }
+data "archive_file" "lambda_zip" {
+    type = "zip"
+    source_file = "greet_lambda.py"
+    output_path = var.output_archive_name
 }
 
-resource "aws_iam_role" "iam_for_lambda" {
-  name = "iam_for_lambda"
+resource "aws_iam_role" "lambda_iam_role" {
+  name = "lambda_iam_role"
+  path = "/"
 
   assume_role_policy = <<EOF
 {
@@ -31,6 +28,23 @@ resource "aws_iam_role" "iam_for_lambda" {
   ]
 }
 EOF
+}
+
+resource "aws_lambda_function" "greet_lambda" {
+    filename= data.archive_file.lambda_zip.output_path
+    function_name= var.lambda_function_name
+    handler= var.lambda_handler
+    role=aws_iam_role.lambda_iam_role.arn
+    runtime = var.lambda_runtime
+
+    source_code_hash = data.archive_file.lambda_zip.output_base64sha256
+    depends_on = [aws_iam_role_policy_attachment.lambda_logs]
+
+  environment {
+    variables = {
+      greeting = "Hello Udacity!"
+    }
+  }
 }
 
 resource "aws_iam_policy" "lambda_logging" {
@@ -56,15 +70,7 @@ resource "aws_iam_policy" "lambda_logging" {
 EOF
 }
 
-resource "aws-lambda-function" "greet_lambda" {
-    filename: var.output_archive_name
-    function_name: var.lambda_function_name
-    handler: var.lambda_handler
-
-    source_code_hash = data.archive_file.archive.output_base64sha256
-}
-
 resource "aws_iam_role_policy_attachment" "lambda_logs" {
-  role       = aws_iam_role.iam_for_lambda.name
+  role       = aws_iam_role.lambda_iam_role.name
   policy_arn = aws_iam_policy.lambda_logging.arn
 }
